@@ -1,0 +1,19 @@
+header {
+    display: flex;
+    background-color: rgb(248, 0, 50);
+    height: 70px;
+    color: #f0f8ff;
+    padding: 10px;
+    /* position: fixed; */
+    width: 100%;
+    top: 0;
+    z-index: 1;
+}
+
+.header-left {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap: 20px;
+}
