@@ -8,7 +8,7 @@ export function Card(props) {
       <span>{props.title}</span>
       <span>R$ {(props.price).toFixed(2)}</span>
       <p>{props.description}</p>
-      <Button name="Adicionar ao Carrinho" status="success" />
+      <Button name="Ir para produto" status="info" />
     </div>
   );
 }

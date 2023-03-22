@@ -15,6 +15,11 @@ const styleDanger = {
    backgroundColor: '#E84258',
 }
 
+const styleInfo = {
+   color: 'white',
+   backgroundColor: 'blue',
+}
+
 const styleDefault = {
    color: 'white',
    backgroundColor: 'gray',
@@ -27,6 +32,8 @@ function styleBtn (status) {
       return styleWarning       
    } else if (status ==='danger') {
       return styleDanger
+   } else if (status ==='info') {
+      return styleInfo
    } else {
       return styleDefault 
    } 
