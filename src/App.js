@@ -33,7 +33,7 @@ function App() {
         <Header />
         <div className="mainDiv">
           {isLoading ? (
-            <ReactLoading type={"bars"} color={"red"} />
+            <ReactLoading type={"bars"} color={"red"} className="loading"/>
           ) : (
             products.map((product, id) => (
               <Card
