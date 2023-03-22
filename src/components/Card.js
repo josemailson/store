@@ -6,9 +6,9 @@ export function Card(props) {
     <div className="container">
       <img src={props.image} alt="" className="imgCard" />
       <span>{props.title}</span>
-      <span>{props.price}</span>
+      <span>R$ {(props.price).toFixed(2)}</span>
       <p>{props.description}</p>
-      <Button name="Button" status="success" />
+      <Button name="Adicionar ao Carrinho" status="success" />
     </div>
   );
 }

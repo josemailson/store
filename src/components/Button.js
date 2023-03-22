@@ -2,7 +2,7 @@ import '../styles/Button.css'
 
 const styleSucess = {
    color: 'white',
-   backgroundColor: "#B0D8A4",
+   backgroundColor: "green",
 }
 
 const styleWarning = {
