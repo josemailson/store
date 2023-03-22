@@ -1,7 +1,7 @@
 import Header from "./components/Header";
 import GlobalStyle from "./globalStyles";
 import { Card } from "./components/Card";
-import { instance } from "./services/api";
+import { getProducts } from "./services/api";
 import { useEffect, useState } from "react";
 import ReactLoading from "react-loading";
 import './styles/App.css'
@@ -11,20 +11,20 @@ function App() {
   const [products, setProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
-  async function fetchGetProducts() {
+  async function fetchProducts() {
     try {
       setIsLoading(true);
-      const response = await instance.get("/products");
-      setProducts(response.data);
-      console.log(response.data);
+      const data = await getProducts();
+      setProducts(data);
     } catch {
     } finally {
       setIsLoading(false);
     }
   }
 
+
   useEffect(() => {
-    fetchGetProducts();
+    fetchProducts();
   }, []);
 
   return (
