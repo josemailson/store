@@ -1,0 +1,38 @@
+.details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .images {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    margin: 20px;
+  }
+  
+  .imgCard {
+    width: 300;
+    height: 300;
+    object-fit: contain;
+    margin-right: 20px;
+    scroll-snap-align: center;
+  }
+  
+  .imgCard:last-child {
+    margin-right: 0;
+  }
+  
+  .texts {
+    margin-top: 20px;
+    text-align: center;
+    width: 900px;
+  }
+  
+  p {
+    margin: 10px;
+    font-size: 1.2rem;
+    line-height: 1.5;
+  }  
