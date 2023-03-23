@@ -3,6 +3,8 @@ import { getProduct } from "../services/api"
 import { useLoaderData } from "react-router-dom"
 import "../styles/Details.css"
 import Header from "./Header";
+import { Carousel } from "react-responsive-carousel";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 export async function loaderProducts({ params }) {
     const product = await getProduct(params.id);
@@ -12,18 +14,22 @@ export async function loaderProducts({ params }) {
 export function Details() {
     const { product } = useLoaderData();
     return (
+      <div>
+      <Header />
       <div className="details">
-        <Header />
         <div className="images">
+          <Carousel showArrows={true}>
         {product.images.map((image, key) => {
             return <img src={image} alt="" className="imgCard" key={key}/>;
         })}
+          </Carousel>
         </div>
         <div className="texts">
-        <p>{product.title}</p>
-        <p>R$ {(product.price).toFixed(2)}</p>
-        <p>{product.description}</p>
+        <p className="title">{product.title}</p>
+        <p className="price">R$ {(product.price).toFixed(2)}</p>
+        <p className="description">{product.description}</p>
         </div>
+      </div>
       </div>
     );
   }
