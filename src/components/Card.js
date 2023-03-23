@@ -1,5 +1,6 @@
 import Button from "./Button";
 import "../styles/Card.css";
+import { Link } from "react-router-dom";
 
 export function Card(props) {
   return (
@@ -8,7 +9,9 @@ export function Card(props) {
       <span>{props.title}</span>
       <span>R$ {(props.price).toFixed(2)}</span>
       <p>{props.description}</p>
-      <Button name="Ir para produto" status="info" />
+      <Link to={`${props.id}`}>
+        <Button name="Ir para produto" status="info" />
+      </Link>
     </div>
   );
 }

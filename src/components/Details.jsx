@@ -1,12 +1,22 @@
-export function Details(props) {
+import React from "react";
+import { getProduct } from "../services/api"
+import { useLoaderData } from "react-router-dom"
+
+export async function loaderProducts({ params }) {
+    const product = await getProduct(params.id);
+    return { product };
+}
+
+export function Details() {
+    const { product } = useLoaderData();
     return (
       <div className="details">
-        {props.images.map((image, key) => {
+        {product.images.map((image, key) => {
             return <img src={image} alt="" className="imgCard" key={key}/>;
         })}
-        <span>{props.title}</span>
-        <span>R$ {(props.price).toFixed(2)}</span>
-        <p>{props.description}</p>
+        <p>{product.title}</p>
+        <p>R$ {(product.price).toFixed(2)}</p>
+        <p>{product.description}</p>
       </div>
     );
   }
