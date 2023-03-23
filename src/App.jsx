@@ -35,12 +35,12 @@ function App() {
           {isLoading ? (
             <ReactLoading type={"bars"} color={"red"} className="loading"/>
           ) : (
-            products.map((product, id) => (
+            products.map((product) => (
               <Card
                 title={product.title}
                 price={product.price}
                 description={product.description}
-                key={id}
+                key={product.id}
                 image={product.images[0]}
                 id={product.id}
               />

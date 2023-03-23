@@ -19,8 +19,8 @@ export function Details() {
       <div className="details">
         <div className="images">
           <Carousel showArrows={true}>
-        {product.images.map((image, key) => {
-            return <img src={image} alt="" className="imgCard" key={key}/>;
+        {product.images.map((image) => {
+            return <img src={image} alt="" className="imgCard" key={image}/>;
         })}
           </Carousel>
         </div>
