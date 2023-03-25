@@ -4,15 +4,20 @@ header {
     height: 70px;
     color: #f0f8ff;
     padding: 10px;
-    /* position: fixed; */
     width: 100%;
     top: 0;
     z-index: 1;
 }
 
+.header{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
 .header-left {
     display: flex;
-    justify-content: center;
+    justify-content: left;
     align-items: center;
     flex-direction: row;
     gap: 20px;
