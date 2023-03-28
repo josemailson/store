@@ -8,9 +8,9 @@ export function ProductItem(props) {
     
     return (
       <div>
-        {list.map((element,key)=>{
+        {list.map((element)=>{
           return(
-            <div className="product-item" key={key}>
+            <div className="product-item" key={element.id}>
               <div className="item-container">
                 <div className="avatar">
                   <img src={element.image} width="50px" alt=""/>
