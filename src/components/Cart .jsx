@@ -1,31 +1,44 @@
-import React from "react";
-import { getProduct } from "../services/api"
-import { useLoaderData } from "react-router-dom"
+import React, { useContext, useEffect, useState } from "react";
 import Button from "./Button";
-
-// export async function loaderProducts({ params }) {
-//     const product = await getProduct(params.id);
-//     return { product };
-// }
+import { CartContext } from '../context/CartContext'
+import {ProductItem} from "../components/ProductItem"
+import "../styles/Cart.css"
 
 export function Cart() {
-    const listProducts = [{image: 'image', title: 'title', price: 10},
-     {image: 'image2', title: 'title2', price: 100},
-     {image: 'image3', title: 'title3', price: 105}];
-    console.log(listProducts)
-    const amountProducts = listProducts.length;
-    console.log(amountProducts)
-    return (
-      <div>
-        <h1>Cart</h1>
-            {listProducts.map((product) => (
-                <div>
-                    <p>{product.image}</p>
-                    <p>{product.title}</p>
-                    <p>{product.price}</p>
-                </div>
-            ))}
-        <Button name="Limpar Carrinho" status="danger" />
-      </div>
-    );
+  
+    const {shop,listItens} = useContext(CartContext);
+    const [ amountPrice, setAmountPrice ] = useState(0);
+
+    useEffect(() => {
+      listItens();
+      setAmountPrice(soma);
+    }, [shop.length]);
+
+    let initialValue = 0;
+
+    let arrayPrices = [];
+
+    shop.map((item) => {
+      arrayPrices.push(item.price);
+    })
+
+    function soma(){
+      console.log('array ' + arrayPrices);
+      const priceTotal = arrayPrices.reduce((total, price) => 
+        total + price, initialValue
+      );
+      return priceTotal;
+    }
+
+      return (
+          <div className="cart">
+            <h1>Carrinho de compras</h1>
+            <ProductItem itens={shop}/>
+            <div>
+              <p>Total de itens: {shop.length}</p>
+              <p>Valor total: R$ {amountPrice.toFixed(2)}</p>
+            </div>
+            <Button name="Limpar Carrinho" status="danger" action="limpar" />
+          </div>
+      );
   }

@@ -1,10 +1,12 @@
 .btn {
     position: relative;
     bottom: 0;
-    height: 50px;
     max-width: 250px;
     color: aliceblue;
     border-radius: 5px;
+    cursor: pointer;
+    border: none;
+    padding: 15px 10px;
 }
 
 .btn:hover {

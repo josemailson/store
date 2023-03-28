@@ -1,13 +1,13 @@
 .container {
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: space-evenly;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     max-width: 300px;
     min-height: 450px;
     margin: auto;
-    text-align: center;   
+    text-align: center;
+    padding: 10px;
 }
 
 .imgCard {
@@ -17,4 +17,10 @@
 .container:hover {
     transform: scale(1.1);
     transition: all .2s ease-in-out;
+}
+
+.buttons-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
 }

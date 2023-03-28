@@ -1,6 +1,7 @@
 import Header from "./components/Header";
 import GlobalStyle from "./globalStyles";
 import { Card } from "./components/Card";
+import { CartProvider } from "./context/CartContext"
 import { getProducts } from "./services/api";
 import { useEffect, useState } from "react";
 import ReactLoading from "react-loading";
@@ -30,23 +31,25 @@ function App() {
   return (
     <>
       <GlobalStyle>
-        <Header />
-        <div className="mainDiv">
-          {isLoading ? (
-            <ReactLoading type={"bars"} color={"red"} className="loading"/>
-          ) : (
-            products.map((product) => (
-              <Card
-                title={product.title}
-                price={product.price}
-                description={product.description}
-                key={product.id}
-                image={product.images[0]}
-                id={product.id}
-              />
-            ))
-          )}
-        </div>
+        <CartProvider>
+          <Header />
+          <div className="mainDiv">
+            {isLoading ? (
+              <ReactLoading type={"bars"} color={"red"} className="loading"/>
+            ) : (
+              products.map((product) => (
+                <Card
+                  title={product.title}
+                  price={product.price}
+                  description={product.description}
+                  key={product.id}
+                  image={product.images[0]}
+                  id={product.id}
+                />
+              ))
+            )}
+          </div>
+        </CartProvider>
       </GlobalStyle>
     </>
   );

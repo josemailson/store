@@ -1,4 +1,6 @@
 import '../styles/Button.css'
+import { CartContext } from '../context/CartContext'
+import { useContext } from 'react'
 
 const styleSucess = {
    color: 'white',
@@ -40,7 +42,24 @@ function styleBtn (status) {
 }
 
 export default function Button(props) {
-   return (        
-      <button className='btn' style={styleBtn(props.status)}>{props.name}</button>
-   )
+
+   const {handleClickAdd, handleClickRemove, handleClickClearList} = useContext(CartContext);
+
+   if(props.action === "adicionar"){
+      return (        
+         <button className='btn' style={styleBtn(props.status)} onClick={()=>{handleClickAdd(props.idProduct, props.image, props.title, props.price)}} >{props.name}</button>
+      )
+   } else if(props.action === "remover"){
+      return (        
+         <button className='btn' style={styleBtn(props.status)} onClick={()=>{handleClickRemove(props.idProduct, props.valueProduct)}} >{props.name}</button>
+      )
+   } else if(props.action === "limpar"){
+      return (        
+         <button className='btn' style={styleBtn(props.status)} onClick={()=>{handleClickClearList()}} >{props.name}</button>
+      )
+   } else {
+      return (        
+         <button className='btn' style={styleBtn(props.status)} >{props.name}</button>
+      )
+   }
 }

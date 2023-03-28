@@ -1,25 +1,30 @@
 import React from "react";
-import { getProduct } from "../services/api"
-import { useLoaderData } from "react-router-dom"
+import "../styles/ProductItem.css";
+import Button from "./Button";
 
-export async function loaderProducts({ params }) {
-    const product = await getProduct(params.id);
-    return { product };
-}
-
-export function ProductItem() {
-    const { product } = useLoaderData();
+export function ProductItem(props) {
+    let list = props.itens;
+    console.log(list);
+    
     return (
       <div>
-      <div className="product-item">
-        <div className="avatar">
-            <img src={product.images[0]} alt=""/>
-        </div>
-        <div className="texts">
-        <span className="title">{product.title}</span>
-        <span className="price">R$ {(product.price).toFixed(2)}</span>
-        </div>
-      </div>
+        {list.map((element,key)=>{
+          return(
+            <div className="product-item" key={key}>
+              <div className="item-container">
+                <div className="avatar">
+                  <img src={element.image} width="50px" alt=""/>
+                </div>
+                <div>
+                  <p>Produto: {element.title}</p>
+                  <p>Preço: R$ {(element.price).toFixed(2)}</p>
+                </div>
+              </div>
+                <Button name="Remover Produto" status="danger" idProduct={element.id} action="remover"></Button>
+            </div>
+          )
+        })}
+  
       </div>
     );
   }
