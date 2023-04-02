@@ -1,10 +1,10 @@
 import React, { useContext, useEffect, useState } from "react";
 import Button from "./Button";
 import { CartContext } from '../context/CartContext'
-import {ProductItem} from "../components/ProductItem"
+import {ProductItem} from "./ProductItem"
 import "../styles/Cart.css"
 
-export function Cart() {
+export default function Cart() {
   
     const {shop,listItens} = useContext(CartContext);
     const [ amountPrice, setAmountPrice ] = useState(0);

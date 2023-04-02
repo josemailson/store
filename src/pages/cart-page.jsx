@@ -1,7 +1,7 @@
 import React from "react";
-import Header from "./Header";
-import { Cart } from "./Cart ";
 import { CartProvider } from "../context/CartContext";
+import Header from "../components/Header";
+import Cart from "../components/Cart"
 
 export function CartPage() {
 

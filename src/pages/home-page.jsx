@@ -1,15 +1,15 @@
-import Header from "./components/Header";
-import GlobalStyle from "./globalStyles";
-import { Card } from "./components/Card";
-import { CartProvider } from "./context/CartContext"
-import { getProducts } from "./services/api";
+import Header from "../components/Header";
+import GlobalStyle from "../globalStyles";
+import { Card } from "../components/Card";
+import { CartProvider } from "../context/CartContext"
+import { getProducts } from "../services/api";
 import { useEffect, useState } from "react";
 import ReactLoading from "react-loading";
-import './styles/App.css'
-import Footer from "./components/Footer";
+import '../styles/Home.css'
+import Footer from "../components/Footer";
 
 
-function App() {
+function Home() {
   const [products, setProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -57,4 +57,4 @@ function App() {
   );
 }
 
-export default App;
+export default Home;
