@@ -6,6 +6,7 @@ import { getProducts } from "./services/api";
 import { useEffect, useState } from "react";
 import ReactLoading from "react-loading";
 import './styles/App.css'
+import Footer from "./components/Footer";
 
 
 function App() {
@@ -49,6 +50,7 @@ function App() {
               ))
             )}
           </div>
+          <Footer />
         </CartProvider>
       </GlobalStyle>
     </>

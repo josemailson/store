@@ -14,7 +14,7 @@ export default function Header() {
         <div>
             <div className='header'>
                 <div className="header-left">
-                        <img src={logo} alt="" height={30}/>
+                        <img src={logo} alt="polo tech logo" height={30}/>
                     <div>
                         <Link to="/" className='link'>
                             <h1>Loja Online</h1>
