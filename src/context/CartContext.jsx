@@ -45,7 +45,7 @@ export const CartProvider = ({ children }) => {
         } else {
             array = JSON.parse(array)
         }
-        array.pop(array.id);
+        array = array.filter(item => item.id !== id);
         setShop(oldArray => [...array]);
         saveLocalStorage(array);
     }
@@ -72,8 +72,30 @@ export const CartProvider = ({ children }) => {
         setShop(oldArray => [...array]);
     }
 
+    const handleClickMinus = (idProduct, value) => {
+        let array = localStorage.getItem("list");
+        array = JSON.parse(array);
+        const id = array.findIndex((item) => item.id === idProduct);
+        if (array[id].quantity === 1) {
+          handleClickRemove(idProduct, value);
+        } else {
+          array[id].quantity -= 1;
+          setShop(oldArray => [...array]);
+          saveLocalStorage(array);
+        }
+    }
+
+    const handleClickPlus = (idProduct, value) => {
+      let array = localStorage.getItem("list");
+      array = JSON.parse(array);
+      const id = array.findIndex((item) => item.id === idProduct);
+      array[id].quantity += 1;
+      setShop(oldArray => [...array]);
+      saveLocalStorage(array);
+  }
+
     return (
-        <CartContext.Provider value={{ handleClickAdd, handleClickRemove, handleClickClearList, saveLocalStorage, listItens, shop }}> 
+        <CartContext.Provider value={{ handleClickAdd, handleClickRemove, handleClickClearList, saveLocalStorage, listItens, handleClickMinus, handleClickPlus, shop }}> 
             {children} 
         </CartContext.Provider>
     )

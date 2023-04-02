@@ -43,7 +43,7 @@ function styleBtn (status) {
 
 export default function Button(props) {
 
-   const {handleClickAdd, handleClickRemove, handleClickClearList} = useContext(CartContext);
+   const {handleClickAdd, handleClickRemove, handleClickClearList, handleClickMinus, handleClickPlus} = useContext(CartContext);
 
    if(props.action === "adicionar"){
       return (        
@@ -56,6 +56,14 @@ export default function Button(props) {
    } else if(props.action === "limpar"){
       return (        
          <button className='btn' style={styleBtn(props.status)} onClick={()=>{handleClickClearList()}} >{props.name}</button>
+      )
+   } else if(props.action === "menos"){
+      return (        
+         <button className='btn' style={styleBtn(props.status)} onClick={()=>{handleClickMinus(props.idProduct, props.valueProduct)}} >{props.name}</button>
+      )
+   } else if(props.action === "mais"){
+      return (        
+         <button className='btn' style={styleBtn(props.status)} onClick={()=>{handleClickPlus(props.idProduct, props.valueProduct)}} >{props.name}</button>
       )
    } else {
       return (        

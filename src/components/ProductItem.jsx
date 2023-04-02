@@ -4,7 +4,6 @@ import Button from "./Button";
 
 export function ProductItem(props) {
     let list = props.itens;
-    console.log(list);
     
     return (
       <div>
@@ -17,14 +16,14 @@ export function ProductItem(props) {
                 </div>
                 <div>
                   <p>Produto: {element.title}</p>
-                  <p>Preço: R$ {(element.price).toFixed(2)}</p>
+                  <p>Preço: R$ {(element.price * element.quantity).toFixed(2)}</p>
                 </div>
               </div>
               <div className="buttons">
                 <div className="quantity">
-                  <button type="button">-</button>
+                  <Button name="-" idProduct={element.id} action="menos"></Button>
                   <p>{element.quantity}</p>
-                  <button type="button">+</button>
+                  <Button name="+" idProduct={element.id} action="mais"></Button>
                 </div>
                 <Button name="Remover Produto" status="danger" idProduct={element.id} action="remover"></Button>
               </div>

@@ -10,6 +10,14 @@ export default function Header() {
 
     const {shop} = useContext(CartContext);
 
+    function getTotalItems(shop) {
+        let totalItems = 0;
+        shop.map((item) => {
+          totalItems += item.quantity;
+        })
+        return totalItems;
+      }
+
     return(
         <div>
             <div className='header'>
@@ -24,7 +32,7 @@ export default function Header() {
                 <div className='header-right'>
                     <Link to="/cart" className='link'>
                         <div className='cart-container'>
-                            <span className='number-cart'>{shop?.length??""}</span>
+                            <span className='number-cart'>{getTotalItems(shop)}</span>
                             <ShoppingCart size={32} color="white" weight="fill" />
                         </div>
                     </Link>
