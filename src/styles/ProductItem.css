@@ -11,3 +11,14 @@
     flex-direction: row;
     align-items: center;
 }
+
+.quantity {
+    display: flex;
+    flex-direction: row;
+}
+
+.buttons {
+   display: flex;
+   flex-direction: row;
+   gap: 8px;
+}

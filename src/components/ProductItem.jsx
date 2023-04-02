@@ -20,7 +20,14 @@ export function ProductItem(props) {
                   <p>Preço: R$ {(element.price).toFixed(2)}</p>
                 </div>
               </div>
+              <div className="buttons">
+                <div className="quantity">
+                  <button type="button">-</button>
+                  <p>{element.quantity}</p>
+                  <button type="button">+</button>
+                </div>
                 <Button name="Remover Produto" status="danger" idProduct={element.id} action="remover"></Button>
+              </div>
             </div>
           )
         })}

@@ -10,24 +10,32 @@ export const CartProvider = ({ children }) => {
         listItens();
       }, []);
 
-    const handleClickAdd = (idProduct, image, title, price)=>{
-        let array = localStorage.getItem("list")
-        if(!array){
-            localStorage.setItem("list",JSON.stringify([]));
-            array = [];
+      const handleClickAdd = (idProduct, image, title, price) => {
+        let array = localStorage.getItem("list");
+        if (!array) {
+          localStorage.setItem("list", JSON.stringify([]));
+          array = [];
         } else {
-            array = JSON.parse(array)
+          array = JSON.parse(array);
         }
-        let newItem = {
+    
+        let existingItemIndex = array.findIndex(item => item.id === idProduct);
+        if (existingItemIndex !== -1) {
+          array[existingItemIndex].quantity += 1;
+        } else {
+          let newItem = {
             id: idProduct,
             image: image,
             title: title,
-            price: price
+            price: price,
+            quantity: 1,
+          };
+          array.push(newItem);
         }
-        array.push(newItem);
+    
         setShop(oldArray => [...array]);
         saveLocalStorage(array);
-    }
+    };
 
     const handleClickRemove = (id,value)=>{
         let array = localStorage.getItem("list");
